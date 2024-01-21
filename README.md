@@ -1,25 +1,57 @@
 # url-shortener-web
 
-This template should help get you started developing with Vue 3 in Vite.
+![banner](.github/banner.png)
 
-## Recommended IDE Setup
+This is a project that generate a shorten url.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Design
 
-## Type Support for `.vue` Imports in TS
+For the design of this project, a Figma was initially created for UI/UX development.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+The design can be found in the [Figma Design Project](https://www.figma.com/file/kOnCZqIuzuebYImVVdghxe/URL-Shortener?type=design&node-id=8%3A59&mode=design&t=kE8rWcGbbdf6Itb8-1).
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+![figma](.github/figma.png)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Technologies ⚙️
 
-## Customize configuration
+The main technologies for the front-end are:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+* [Vue3JS](https://vuejs.org/)
+* [Typescript](https://www.typescriptlang.org/)
+* [Vite](https://vitejs.dev/guide/)
+
+The main dependencies used are:
+
+```json
+"dependencies": {
+    "vue": "^3.3.11"
+},
+"devDependencies": {
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/node": "^18.19.3",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/tsconfig": "^0.5.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "npm-run-all2": "^6.1.1",
+    "prettier": "^3.0.3",
+    "sass": "^1.70.0",
+    "typescript": "~5.3.0",
+    "vite": "^5.0.10",
+    "vue-tsc": "^1.8.25"
+}
+```
+
+## Features
+
+- [X] Send a request to API
+- [X] Get result from API
+- [X] Copy result
+- [X] Open in new Tab
 
 ## Project Setup
 
@@ -44,3 +76,8 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## License
+
+This project is open-source and is distributed under the MIT License. Feel free to explore, modify, and utilize the codebase according to the terms outlined in the license.
+
