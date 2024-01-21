@@ -1,6 +1,6 @@
 <template>
     <a :href="githubURL" target="_blank">
-        <GithubIcon />
+        <GithubIcon class="icon"/>
     </a>
 </template>
 
@@ -28,11 +28,11 @@ export default {
 
         transition: all 0.3s;
 
-        &:hover{
-            background: var(--purple);
-            opacity: 0.8;
-        }
-
         margin-top: auto;
+
+        &:hover{
+            background-color: var(--purple);
+            /* opacity: 0.8; */
+        }
     }
 </style>
