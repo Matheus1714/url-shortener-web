@@ -1,27 +1,54 @@
 <template>
     <main>
-        <CardInput placeholder="URL Here"/>
-        <CardButton title="Generate Shortener"/>
-    
+        <InputForm 
+            @handleChangeUrl="handleChangeUrl"
+            @handleSubmit="handleSubmit"
+        />
         <DivLine />
-    
-        <CardInput disabled showCopyIcon/>
-        <CardButton title="Go To URL"/>
-    
+        <OutputDisplay :shortUrl="shortUrl" />
         <DivLine />
     </main>
 </template>
 
 <script>
 import DivLine from './DivLine.vue';
-import CardButton from './CardButton.vue'
-import CardInput from './CardInput.vue'
+import InputForm from './InputForm.vue'
+import OutputDisplay from './OutputDisplay.vue'
 
 export default {
     components: {
         DivLine,
-        CardButton,
-        CardInput
+        InputForm,
+        OutputDisplay
+    },
+    data(){
+        return {
+            originUrl: "",
+            shortUrl: ""
+        }
+    },
+    methods: {
+        handleChangeUrl(newUrl){
+            this.originUrl = newUrl
+        },
+        async handleSubmit(){
+            try{
+                const body = {
+                    originURL: this.originUrl
+                }
+                const response = await fetch('http://localhost:5000/shorten', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body),
+                })
+                const data = await response.json()
+                this.shortUrl = data['shortURL']
+            }catch(error){
+                console.log(error)
+            }
+        }
     }
 }
 </script>
@@ -36,4 +63,5 @@ main{
     align-items: center;
     gap: 1rem;
 }
+
 </style>

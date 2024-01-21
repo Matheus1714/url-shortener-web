@@ -1,7 +1,15 @@
 <template>
     <div class="input-url">
-        <input type="text" :placeholder="placeholder" :disabled="disabled">
-        <button class="copy" v-if="showCopyIcon">
+        <input 
+            type="text"
+            :placeholder="placeholder" 
+            :disabled="disabled"
+
+            :value="value"
+            
+            @input="handleChangeUrl($event)"
+        >
+        <button class="copy" v-if="showCopyIcon" @click="onCopy()">
             <CopyIcon />
         </button>
     </div>
@@ -11,13 +19,24 @@
 import CopyIcon from './CopyIcon.vue';
 
 export default {
+    components: {
+        CopyIcon
+    },
     props: {
         placeholder: String,
         disabled: Boolean,
-        showCopyIcon: Boolean
+        showCopyIcon: Boolean,
+        originUrl: String,
+        value: String
     },
-    components: {
-        CopyIcon
+    methods: {
+        handleChangeUrl(event){
+            const newUrl = event.target.value
+            this.$emit('handleChangeUrl', newUrl)
+        },
+        onCopy(){
+            navigator.clipboard.writeText(this.value)
+        }
     }
 }
 </script>
