@@ -36,7 +36,7 @@ export default {
                 const body = {
                     originURL: this.originUrl
                 }
-                const response = await fetch('http://localhost:5000/shorten', {
+                const response = await fetch(`${API_URL}/shorten`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
