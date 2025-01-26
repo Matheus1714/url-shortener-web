@@ -36,7 +36,7 @@ export default {
                 const body = {
                     originURL: this.originUrl
                 }
-                const response = await fetch(`${process.env.API_URL}/shorten`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/shorten`, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",
